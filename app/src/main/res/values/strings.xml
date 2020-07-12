@@ -10,4 +10,12 @@
     <string name="hello_first_fragment">Hello first fragment</string>
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
     <string name="time_until_next_water">Time until next water</string>
+    <string name="water_button_text">Water</string>
+    <string name="settings_button_text">Settings</string>
+    <string name="Count">0</string>
+    <string name="cups_of_water_drank">Cups of water drank</string>
+    <string name="cupcount">0</string>
+    <string name="water_button_count_text">0</string>
+
+
 </resources>

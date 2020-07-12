@@ -11,6 +11,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.fragment.NavHostFragment;
+import java.util.concurrent.TimeUnit;
 
 public class FirstFragment extends Fragment {
 
@@ -40,14 +41,17 @@ public class FirstFragment extends Fragment {
                 Toast waterToast = Toast.makeText(getActivity(), "You drank water!", Toast.LENGTH_SHORT);
                 waterToast.show();
                 countMe(view);
-                new CountDownTimer(30000, 1000) {
-
+                new CountDownTimer(7200000, 1000) {
                     public void onTick(long millisUntilFinished) {
-                        showCountDownTextView.setText("seconds remaining: " + millisUntilFinished / 1000);
+
+                        long hours = TimeUnit.MILLISECONDS.toHours(millisUntilFinished);
+                        long minutes = TimeUnit.MILLISECONDS.toMinutes((millisUntilFinished-hours*3600000));
+                        long seconds = TimeUnit.MILLISECONDS.toSeconds((millisUntilFinished-hours*3600000-minutes*60000));
+                        showCountDownTextView.setText((hours)+":"+(minutes)+":"+seconds);
                     }
 
                     public void onFinish() {
-                        showCountDownTextView.setText("done!");
+                        showCountDownTextView.setText("Time is up! Drink your water");
                     }
                 }.start();
             }
